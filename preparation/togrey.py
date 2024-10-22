@@ -1,5 +1,5 @@
 # Path to the folder containing the images
-input_folder = '/home/abdulrauf/Projects/makhi_meter_dataset/version/training/combined rgb/'
+input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined rgb/7/'
 
 
 import os
@@ -25,6 +25,6 @@ for file in files:
     
     
     # Save the encoded image, replacing the original one
-    Image.fromarray(image).save('version/training/combined rgb/' + file)
+    Image.fromarray(image).save('/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined rgb/7/' + file)
 
 print("greyed.")

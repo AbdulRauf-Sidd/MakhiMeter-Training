@@ -1,5 +1,5 @@
 # Path to the folder containing the images
-input_folder = '/home/abdulrauf/Projects/makhi_meter_dataset/version/training/perfect binary/'
+input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/'
 
 import os
 import cv2
@@ -12,7 +12,7 @@ target_size = (256, 256)
 files = [f for f in os.listdir(input_folder) if f.endswith('.png')]
 
 # Ensure the output folder exists
-output_folder = 'version/training/perfect binary (256)/'
+output_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/'
 os.makedirs(output_folder, exist_ok=True)
 
 # Process each image

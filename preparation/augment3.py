@@ -47,8 +47,9 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
         img_mask = np.array(img_mask)
         
         # Reshape for data generator
-        img_rgb = img_rgb.reshape((1,) + img_rgb.shape)
-        img_mask = img_mask.reshape((1,) + img_mask.shape)
+        img_rgb = img_rgb.reshape((1,) + img_rgb.shape)  # Adding channel dimension for RGB
+        img_mask = img_mask.reshape((1,) + img_mask.shape)  # Adding channel dimension for grayscale mask
+        
         print(img_rgb.shape, img_mask.shape)
         # Generate augmented images
         rgb_gen = datagen_rgb.flow(img_rgb, batch_size=1, seed=42)
@@ -64,10 +65,10 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
             Image.fromarray(batch_mask[0].astype('uint8')).save(os.path.join(output_folder_mask, augmented_file_name))
 
 # Define paths
-source_folder_rgb = 'version/training/defected'
-source_folder_mask = 'version/training/defected masked'
-output_folder_rgb = 'version/training/defected (256)'
-output_folder_mask = 'version/training/defected masked (256)'
+source_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined rgb/'
+source_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/'
+output_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined rgb/7/'
+output_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/7/'
 
 # Run the function
 augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, output_folder_mask)

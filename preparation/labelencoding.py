@@ -21,7 +21,7 @@ label_mapping = {
 }
 
 # Path to the folder containing the images
-input_folder = 'version/training/combined masked/'
+input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/7/'
 
 # Get all image file names in the folder
 files = [f for f in os.listdir(input_folder) if f.endswith('.png')]
@@ -48,6 +48,6 @@ for file in files:
     encoded_image = label_encode_image(image, label_mapping)
     
     # Save the encoded image, replacing the original one
-    Image.fromarray(encoded_image).save('version/training/combined masked/' + file)
+    Image.fromarray(encoded_image).save('/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/7/' + file)
 
 print("Label encoding completed and images replaced.")
