@@ -11,7 +11,7 @@ def mouse_callback(event, x, y, flags, param):
         print(f'x: {x}, y: {y}', image[x][y])
         
 # Read the image
-image = cv2.imread('Pasted image.png', 1)
+image = cv2.imread('test.png', 0)
 print(image.shape)
 # print(image[293][269]);
 # image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

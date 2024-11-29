@@ -14,7 +14,7 @@ from keras.layers import Input, Conv2D, MaxPooling2D, UpSampling2D, concatenate,
 
 
 ################################################################
-def multi_unet_model(n_classes=14, IMG_HEIGHT=256, IMG_WIDTH=256, IMG_CHANNELS=1):
+def multi_unet_model(n_classes=8, IMG_HEIGHT=256, IMG_WIDTH=256, IMG_CHANNELS=1):
 #Build the model
     inputs = Input((IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS))
     #s = Lambda(lambda x: x / 255)(inputs)   #No need for this if we normalize our inputs beforehand

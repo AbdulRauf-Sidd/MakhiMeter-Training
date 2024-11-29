@@ -12,11 +12,11 @@ def collect_unique_pixel_values(folder_path):
     for file in files:
         # Construct the full file path
         file_path = os.path.join(folder_path, file)
-        
-        # Read the image using OpenCV and convert it to grayscale
+    
+    # Read the image using OpenCV and convert it to grayscale
         image = cv2.imread(file_path, cv2.IMREAD_GRAYSCALE)
-        
-        # Get unique pixel values and update the set
+    
+    # Get unique pixel values and update the set
         unique_values = np.unique(image)
         unique_pixel_values.update(unique_values)
     
@@ -24,7 +24,7 @@ def collect_unique_pixel_values(folder_path):
     print(f"Unique pixel values across all images: {unique_pixel_values}")
 
 # Specify the folder path containing the images
-folder_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/combined masked 7/7/'
+folder_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/labeled encoded/'
 
 # Call the function
 collect_unique_pixel_values(folder_path)

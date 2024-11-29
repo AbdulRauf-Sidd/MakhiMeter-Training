@@ -1,5 +1,6 @@
 import os
-from PIL import Image
+from PIL import Image, ImageOps
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 def convert_images_to_png(source_dir, output_dir):
     # Check if output directory exists, create if not
@@ -12,12 +13,17 @@ def convert_images_to_png(source_dir, output_dir):
             file_path = os.path.join(source_dir, filename)
             # Open the image file
             with Image.open(file_path) as img:
+                # Apply EXIF orientation (fix rotation if needed)
+                img = ImageOps.exif_transpose(img)
+                
                 # Remove extension and add .png
                 new_filename = os.path.splitext(filename)[0] + '.png'
                 output_path = os.path.join(output_dir, new_filename)
+                
                 # Convert and save image as PNG
                 img.save(output_path, 'PNG')
 
-source_dir = 'version/training/defected'
-output_dir = 'version/training/defected'
+
+source_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/combined rgb'
+output_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/combined rgb'
 convert_images_to_png(source_dir, output_dir)

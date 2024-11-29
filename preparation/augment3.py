@@ -39,7 +39,8 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
         file_path_mask = os.path.join(source_folder_mask, file)
         
         # Load and resize images
-        img_rgb = Image.open(file_path_rgb).resize((256, 256))
+        img_rgb = Image.open(file_path_rgb).convert('L').resize((256, 256))
+        # img_rgb = Image.open(file_path_rgb).convert('L')
         img_mask = Image.open(file_path_mask).resize((256, 256), resample=Image.NEAREST)  # Use nearest neighbor for masks
         
         # Convert images to arrays
@@ -47,7 +48,7 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
         img_mask = np.array(img_mask)
         
         # Reshape for data generator
-        img_rgb = img_rgb.reshape((1,) + img_rgb.shape)  # Adding channel dimension for RGB
+        img_rgb = img_rgb.reshape((1,) + img_rgb.shape + (1,))  # Adding channel dimension for grayscale
         img_mask = img_mask.reshape((1,) + img_mask.shape)  # Adding channel dimension for grayscale mask
         
         print(img_rgb.shape, img_mask.shape)
@@ -61,7 +62,7 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
 
             # Save augmented images with consistent naming
             augmented_file_name = f'aug_{i}_{file}'
-            Image.fromarray((batch_rgb[0] * 255).astype('uint8')).save(os.path.join(output_folder_rgb, augmented_file_name))
+            Image.fromarray((batch_rgb[0, :, :, 0] * 255).astype('uint8')).save(os.path.join(output_folder_rgb, augmented_file_name))
             Image.fromarray(batch_mask[0].astype('uint8')).save(os.path.join(output_folder_mask, augmented_file_name))
 
 # Define paths
