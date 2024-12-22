@@ -31,8 +31,8 @@ target_size = (256, 256)
 
 # print("Images successfully resized to 256x256 and saved.")
 
-image = cv2.imread('/home/abdulrauf/Projects/MakhiMeter-Training/S.coracina_f_03.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('/home/abdulrauf/Projects/MakhiMeter-Training/output_image.png', cv2.IMREAD_GRAYSCALE)
     
     # Resize the image to 128x128
 resized_image = cv2.resize(image, target_size, interpolation=cv2.INTER_NEAREST)
-Image.fromarray(resized_image).save('/home/abdulrauf/Projects/MakhiMeter-Training/S.coracina_f_03_1.png')
+Image.fromarray(resized_image).save('/home/abdulrauf/Projects/MakhiMeter-Training/test4.png')

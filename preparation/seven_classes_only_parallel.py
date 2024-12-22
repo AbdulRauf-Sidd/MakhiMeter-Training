@@ -1,6 +1,7 @@
 from PIL import Image
 import os
 import concurrent.futures
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 def process_image(file_path, hex_colors, grey, output_dir):
     # Convert the list of hex colors to a list of RGB tuples
@@ -43,8 +44,8 @@ def process_images(directory, hex_colors, grey, output_dir):
         concurrent.futures.wait(futures)
 
 # Example usage
-directory_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/augmented masked'
-output_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/augmented masked/processed'
+directory_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked'
+output_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked'
 hex_colors = ['00ff00', 'ff0000', '0000ff', '1d19b5', 'ffff00', 'ff00ff', '00ffff', '691369']  # Example hex colors
 
 process_images(directory_path, hex_colors, grey=False, output_dir=output_dir)

@@ -35,7 +35,7 @@ def collect_unique_pixel_values(folder_path):
     print(f"Unique pixel values across all images: {sorted(unique_pixel_values)}")
 
 # Specify the folder path containing the images
-folder_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/labeled encoded/'
+folder_path = '/home/abdulrauf/Projects/MakhiMeter-Training/extracted_images/'
 
 # Call the function
 collect_unique_pixel_values(folder_path)

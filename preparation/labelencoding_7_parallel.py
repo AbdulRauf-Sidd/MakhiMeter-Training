@@ -3,24 +3,7 @@ import cv2
 import numpy as np
 from PIL import Image
 import concurrent.futures
-
-# Define the original pixel values and their corresponding encoded labels
-label_mapping = {
-    0: 0,
-    43: 1,
-    54: 2,
-    76: 3,
-    105: 4,
-    149: 5,
-    178: 6,
-    225: 7,
-}
-
-# Path to the folder containing the images
-
-
-# Get all image file names in the folder
-
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Function to apply label encoding to each image
 def label_encode_image(file_path, label_mapping):
@@ -35,9 +18,9 @@ def label_encode_image(file_path, label_mapping):
         encoded_image[image == original_value] = encoded_value
 
     # Save the encoded image, replacing the original one
-    output_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/labeled encoded/' + os.path.basename(file_path)
+    output_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/labeled encoded/' + os.path.basename(file_path)
     Image.fromarray(encoded_image).save(output_path)
-
+    
 # Function to process images in parallel
 def process_images_in_parallel(files, input_folder, label_mapping):
     # Prepare the full file paths for each image
@@ -53,7 +36,19 @@ def process_images_in_parallel(files, input_folder, label_mapping):
 
 # Example usage
 
-input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/with_rotation/size 256/interpolated/augmented masked/'
+# Define the original pixel values and their corresponding encoded labels
+label_mapping = {
+    0: 0,
+    43: 1,
+    54: 2,
+    76: 3,
+    105: 4,
+    149: 5,
+    178: 6,
+    225: 7,
+}
+
+input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked/'
 files = [f for f in os.listdir(input_folder) if f.endswith('.png')]
 process_images_in_parallel(files, input_folder, label_mapping)
 print("Label encoding completed and images replaced.")
