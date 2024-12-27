@@ -7,18 +7,18 @@ import threading
 def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, output_folder_mask, size, index, resize=True):
     # Data generator for RGB images (with interpolation and rescaling)
     datagen_rgb = ImageDataGenerator(
-        rotation_range=15,
+        rotation_range=3,
         width_shift_range=0.1,
         height_shift_range=0.1,
         zoom_range=0.1,
-        fill_mode='nearest',
+        fill_mode='constant',
         cval=0,
         rescale=1./255  # Rescaling only applies to RGB images
     )
     
     # Data generator for mask images (without interpolation and no rescaling)
     datagen_mask = ImageDataGenerator(
-        rotation_range=15,
+        rotation_range=3,
         width_shift_range=0.1,
         height_shift_range=0.1,
         zoom_range=0.1,
@@ -61,7 +61,7 @@ def augment_images(source_folder_rgb, source_folder_mask, output_folder_rgb, out
         rgb_gen = datagen_rgb.flow(img_rgb, batch_size=1, seed=42)
         mask_gen = datagen_mask.flow(img_mask, batch_size=1, seed=42)
 
-        for i in range(10):  # Generate 10 augmented images per input image
+        for i in range(20):  # Generate 10 augmented images per input image
             batch_rgb = rgb_gen.__next__()
             batch_mask = mask_gen.__next__()
 
@@ -104,10 +104,10 @@ def parallel_process_files(source_rgb, source_masked, output_rgb, output_masked,
         thread.join()
 
 # Define paths
-source_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/combined rgb/'
-source_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/combined masked/'
-output_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented rgb/'
-output_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked/'
+source_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/brain/rgb/'
+source_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/brain/masked/'
+output_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/brain/rgb aug/'
+output_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/brain/masked aug/'
 
 
 

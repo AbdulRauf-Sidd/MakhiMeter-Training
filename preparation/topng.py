@@ -24,6 +24,6 @@ def convert_images_to_png(source_dir, output_dir):
                 img.save(output_path, 'PNG')
 
 
-source_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/combined rgb'
-output_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/combined rgb'
+source_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb'
+output_dir = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb'
 convert_images_to_png(source_dir, output_dir)

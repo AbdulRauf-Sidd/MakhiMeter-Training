@@ -103,7 +103,7 @@ class preprocess:
             width_shift_range=0.1,
             height_shift_range=0.1,
             zoom_range=0.1,
-            fill_mode='nearest',
+            fill_mode='constant',
             cval=0,
             rescale=1./255  # Rescaling only applies to RGB images
         )

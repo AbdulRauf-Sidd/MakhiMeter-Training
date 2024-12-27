@@ -77,9 +77,9 @@ def parallel_process_files(source_rgb, source_masked, output_rgb, output_masked)
         thread.join()
 
 # Define paths
-source_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented rgb/'
-source_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked/'
-output_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/rotated/augmented rgb/'
-output_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/rotated/augmented masked/'
+source_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb2/'
+source_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/masked/'
+output_folder_rgb = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb2 aug'
+output_folder_mask = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/masked aug'
 # Run the function
 parallel_process_files(source_folder_rgb, source_folder_mask, output_folder_rgb, output_folder_mask)

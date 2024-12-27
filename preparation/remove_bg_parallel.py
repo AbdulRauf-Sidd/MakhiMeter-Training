@@ -71,8 +71,8 @@ def parallel_process_images(source_folder, output_folder):
         thread.join()
 
 # Example usage
-source_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/combined rgb'  # Path to the folder with images
-output_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/combined rgb'  # Path to the folder to save processed images
+source_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb'  # Path to the folder with images
+output_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/rgb2'  # Path to the folder to save processed images
 
 # Start the parallel processing
 parallel_process_images(source_folder, output_folder)

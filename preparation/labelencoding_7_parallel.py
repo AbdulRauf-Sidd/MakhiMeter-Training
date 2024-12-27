@@ -18,7 +18,7 @@ def label_encode_image(file_path, label_mapping):
         encoded_image[image == original_value] = encoded_value
 
     # Save the encoded image, replacing the original one
-    output_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/labeled encoded/' + os.path.basename(file_path)
+    output_path = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/labeled encoded/' + os.path.basename(file_path)
     Image.fromarray(encoded_image).save(output_path)
     
 # Function to process images in parallel
@@ -48,7 +48,7 @@ label_mapping = {
     225: 7,
 }
 
-input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.2/experiment_2/background_removed/augmented masked/'
+input_folder = '/home/abdulrauf/Projects/MakhiMeter-Training/data/training/model_v1.3/extra data/masked aug/'
 files = [f for f in os.listdir(input_folder) if f.endswith('.png')]
 process_images_in_parallel(files, input_folder, label_mapping)
 print("Label encoding completed and images replaced.")
